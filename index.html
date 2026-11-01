@@ -442,6 +442,16 @@
     .wa-float { bottom: 88px; }
     .pdp-grid { grid-template-columns: 1fr; }
   }
+  @media (max-width: 720px) {
+    .brand { gap: 8px; min-width: 0; }
+    .brand-logo { height: 46px; }
+    .brand-name { font-size: 14px; letter-spacing: .3px; white-space: nowrap; }
+    .header-cta { gap: 6px; flex-shrink: 0; }
+    .icon-btn { width: 34px; height: 34px; }
+    .icon-btn .icon { width: 16px; height: 16px; }
+    .count { min-width: 15px; height: 15px; font-size: 9px; top: -3px; right: -3px; }
+    .menu-btn { width: 34px; height: 34px; }
+  }
 </style>
 </head>
 <body>
@@ -1624,6 +1634,9 @@
     wishCount.textContent = wish.length;
     bagCount.textContent = bag.length;
     bbCount.textContent = bag.length;
+    wishCount.hidden = !wish.length;
+    bagCount.hidden = !bag.length;
+    bbCount.hidden = !bag.length;
     document.querySelectorAll("[data-wish]").forEach(function (b) {
       var on = wish.indexOf(b.getAttribute("data-wish")) >= 0;
       b.classList.toggle("on", on);
